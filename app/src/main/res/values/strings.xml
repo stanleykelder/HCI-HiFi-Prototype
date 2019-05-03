@@ -1,3 +1,48 @@
 <resources>
     <string name="app_name">Hi-Fi Volunteering Prototype</string>
+
+
+    <!-- strings.xml -->
+    <string name="helps">
+
+Helps
+</string>
+    <!-- strings.xml -->
+    <string name="upcoming_sc">
+
+Upcoming score
+</string>
+    <!-- strings.xml -->
+    <string name="nothing_pla">
+
+Nothing planned yet.
+</string>
+    <!-- strings.xml -->
+    <string name="level_1">
+
+Level 1
+</string>
+    <!-- strings.xml -->
+    <string name="donations">
+
+Donations
+</string>
+    <!-- strings.xml -->
+    <string name="friends">
+
+Friends
+</string>
+    <!-- strings.xml -->
+    <string name="level_3">
+
+Level 3
+</string>
+    <!-- strings.xml -->
+    <string name="luca_alma">
+
+Luca Alma
+</string>
+
+
 </resources>
+
