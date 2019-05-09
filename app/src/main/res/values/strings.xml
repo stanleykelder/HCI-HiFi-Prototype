@@ -37,25 +37,12 @@ Friends
 
 Level 3
 </string>
-
     <!-- strings.xml -->
     <string name="luca_alma">
 
 Luca Alma
 </string>
 
-    <!--Titles-->
-
-    <string name="title_search">
-Search
-</string>
-
-    <string name="title_helps">
-Helper level
-</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
 
