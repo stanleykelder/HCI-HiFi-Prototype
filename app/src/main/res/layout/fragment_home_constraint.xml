@@ -109,34 +109,31 @@
 
     <ImageView
         android:id="@+id/helps_image"
-        android:layout_width="70dp"
+        android:layout_width="74dp"
         android:layout_height="74dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/donations_image"
-        app:layout_constraintHorizontal_bias="0.577"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/helps_level"
         android:background="@drawable/ic_helps"
-        />
+        app:layout_constraintEnd_toStartOf="@+id/donations_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/helps_level" />
 
     <ImageView
         android:id="@+id/donations_image"
-        android:layout_width="70dp"
+        android:layout_width="74dp"
         android:layout_height="74dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:background="@drawable/ic_donations"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/donations_level"
-        android:background="@drawable/ic_donations"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/donations_level" />
 
     <ImageView
         android:id="@+id/friends_image"
