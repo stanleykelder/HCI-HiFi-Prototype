@@ -17,17 +17,15 @@ public class SearchFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_search, container, false);
+    }
 
-//        Toolbar myToolbar = (Toolbar) getView().findViewById(R.id.my_toolbar);
-//        myToolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        ((MainActivity) getActivity()).setTitle("Search");
+        ((MainActivity) getActivity()).addArrow();
 
 
-//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                return;
-//                getActivity().onBackPressed();
-//            }
-//        });
+
+
     }
 }
