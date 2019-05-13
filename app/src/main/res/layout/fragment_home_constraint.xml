@@ -22,12 +22,10 @@
 
 
 
-
                 <LinearLayout
                     android:id="@+id/profile_card_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:elevation="4dp"
                     android:gravity="center_horizontal"
                     android:orientation="vertical">
 
@@ -51,19 +49,22 @@
                             android:layout_marginTop="10dp"
                             android:layout_marginBottom="10dp"
                             android:text="@string/luca_alma"
-                            android:textAppearance="@style/name" />
+                            android:textAppearance="@style/h1"
+                            app:fontFamily="@font/open_sans_bold" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:layout_width="100dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
                             android:gravity="center"
                             android:orientation="vertical">
 
@@ -73,10 +74,11 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="9dp"
                                 android:text="@string/helps"
-                                android:textAppearance="@style/category" />
+                                android:textAppearance="@style/h3"
+                                app:fontFamily="@font/comfortaa" />
 
                             <RelativeLayout
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center">
 
@@ -91,7 +93,9 @@
                                     android:background="@drawable/ring_background"
                                     android:gravity="center"
                                     android:text="3"
-                                    android:textAppearance="@style/name" />
+                                    android:textAppearance="@style/h1"
+                                    android:textColor="#C38209"
+                                    app:fontFamily="@font/open_sans_bold" />
 
                                 <ProgressBar
                                     android:id="@+id/help_level"
@@ -112,14 +116,17 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="5dp"
                                 android:text="@string/level_1"
-                                android:textAppearance="@style/level" />
+                                android:textAppearance="@style/h6"
+                                app:fontFamily="@font/comfortaa" />
 
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="100dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
                             android:gravity="center_horizontal"
                             android:orientation="vertical">
 
@@ -129,10 +136,11 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="9dp"
                                 android:text="@string/donations"
-                                android:textAppearance="@style/category" />
+                                android:textAppearance="@style/h3"
+                                app:fontFamily="@font/comfortaa" />
 
                             <RelativeLayout
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center">
 
@@ -147,7 +155,9 @@
                                     android:background="@drawable/ring_background"
                                     android:gravity="center"
                                     android:text="8"
-                                    android:textAppearance="@style/name" />
+                                    android:textAppearance="@style/h1"
+                                    android:textColor="#56A24E"
+                                    app:fontFamily="@font/open_sans_bold" />
 
                                 <ProgressBar
                                     android:id="@+id/donation_level"
@@ -171,15 +181,19 @@
                                 android:layout_alignBottom="@id/donation_level"
                                 android:layout_marginBottom="5dp"
                                 android:text="@string/level_3"
-                                android:textAppearance="@style/level" />
+                                android:textAppearance="@style/h6"
+                                app:fontFamily="@font/comfortaa" />
 
 
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="100dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginRight="20dp"
                             android:gravity="center"
                             android:orientation="vertical">
 
@@ -189,7 +203,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="9dp"
                                 android:text="@string/friends"
-                                android:textAppearance="@style/category" />
+                                android:textAppearance="@style/h3"
+                                app:fontFamily="@font/comfortaa" />
 
                             <TextView
                                 android:id="@+id/friends_number"
@@ -198,7 +213,9 @@
                                 android:background="@drawable/friends_level"
                                 android:gravity="center"
                                 android:text="5"
-                                android:textAppearance="@style/name" />
+                                android:textAppearance="@style/h1"
+                                android:textColor="#FFFFFF"
+                                app:fontFamily="@font/open_sans_bold" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -222,7 +239,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
                     android:text="Upcoming events"
-                    android:textAppearance="@style/section" />
+                    android:textAppearance="@style/h1"
+                    app:fontFamily="@font/open_sans_bold" />
 
                 <TextView
                     android:id="@+id/textView4"
@@ -230,7 +248,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
-                    android:text="Nothing planned" />
+                    android:text="Nothing planned"
+                    android:textAppearance="@style/h6"
+                    app:fontFamily="@font/comfortaa" />
             </LinearLayout>
 
         </LinearLayout>
