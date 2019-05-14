@@ -1,6 +1,7 @@
 package com.example.stanley.hi_fivolunteeringprototype;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.provider.DocumentsContract;
 import android.support.annotation.Nullable;
@@ -23,6 +24,10 @@ public class SearchFragment extends Fragment {
 
     final Context context = getActivity().getApplicationContext();
 
+    Resources res = getResources();
+    String[] planets = res.getStringArray(R.array.planets_array);
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -40,10 +45,8 @@ public class SearchFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         // specify an adapter (see also next example)
-        mAdapter = new MyAdapter(myDataset);
+        mAdapter = new MyAdapter(planets);
         recyclerView.setAdapter(mAdapter);
-
-
 
         return rootView;
     }
@@ -52,9 +55,5 @@ public class SearchFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         getActivity().setTitle("Search");
         ((MainActivity) getActivity()).removeArrow();
-
-
-
-
     }
 }

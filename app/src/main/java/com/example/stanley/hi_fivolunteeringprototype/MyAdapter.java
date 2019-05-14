@@ -32,9 +32,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         // create a new view
         TextView v = (TextView) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_search, parent, false);
-        ...
+//        ...
         MyViewHolder vh = new MyViewHolder(v);
-        return vh; 
+        return vh;
     }
 
     // Replace the contents of a view (invoked by the layout manager)
