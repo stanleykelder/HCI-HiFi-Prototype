@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.provider.DocumentsContract;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,42 +19,33 @@ import android.widget.ImageView;
 
 public class SearchFragment extends Fragment {
 
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager layoutManager;
-
-    final Context context = getActivity().getApplicationContext();
-
-    Resources res = getResources();
-    String[] planets = res.getStringArray(R.array.planets_array);
-
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_search, container, false);
+        return inflater.inflate(R.layout.fragment_search, container, false);
 
-        super.onCreate(savedInstanceState);
-        recyclerView = getView().findViewById(R.id.recycleView);
 
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-        recyclerView.setHasFixedSize(true);
-
-        // use a linear layout manager
-        layoutManager = new LinearLayoutManager(context);
-        recyclerView.setLayoutManager(layoutManager);
-
-        // specify an adapter (see also next example)
-        mAdapter = new MyAdapter(planets);
-        recyclerView.setAdapter(mAdapter);
-
-        return rootView;
+//        View rootview =
+//        return rootview;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         getActivity().setTitle("Search");
         ((MainActivity) getActivity()).removeArrow();
+
+
+//        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+//        fragmentTransaction.replace(R.id.fragment_container, new ResultsFragment());
+//        fragmentTransaction.addToBackStack(null);
+//        fragmentTransaction.commit();
+
+        //Handle the Child Fragment.
+        FragmentTransaction ft = getChildFragmentManager().beginTransaction();
+//        ResultsFragment elf = new ResultsFragment();
+        ft.replace(R.id.fragment_container, new ResultsFragment());
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        ft.addToBackStack(null);
+        ft.commit();
     }
 }
