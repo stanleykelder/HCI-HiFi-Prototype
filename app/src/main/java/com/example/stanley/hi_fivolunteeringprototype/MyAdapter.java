@@ -34,7 +34,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 .inflate(R.layout.fragment_search, parent, false);
         ...
         MyViewHolder vh = new MyViewHolder(v);
-        return vh;
+        return vh; 
     }
 
     // Replace the contents of a view (invoked by the layout manager)
