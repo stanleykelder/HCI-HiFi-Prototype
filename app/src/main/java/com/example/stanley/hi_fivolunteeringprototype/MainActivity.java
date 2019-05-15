@@ -179,7 +179,7 @@ public class MainActivity extends AppCompatActivity implements ListFragment.OnLi
         // and add the transaction to the back stack if needed
         transaction.replace(R.id.fragment_container, newFragment);
         transaction.addToBackStack(null);
-        
+
         // Commit the transaction
         transaction.commit();
 
