@@ -23,10 +23,6 @@ public class SearchFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_search, container, false);
-
-
-//        View rootview =
-//        return rootview;
     }
 
     @Override
@@ -34,16 +30,9 @@ public class SearchFragment extends Fragment {
         getActivity().setTitle("Search");
         ((MainActivity) getActivity()).removeArrow();
 
-
-//        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-//        fragmentTransaction.replace(R.id.fragment_container, new ResultsFragment());
-//        fragmentTransaction.addToBackStack(null);
-//        fragmentTransaction.commit();
-
         //Handle the Child Fragment.
         FragmentTransaction ft = getChildFragmentManager().beginTransaction();
-//        ResultsFragment elf = new ResultsFragment();
-        ft.replace(R.id.fragment_container, new ResultsFragment());
+        ft.replace(R.id.fragment_container, new ListFragment());
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         ft.addToBackStack(null);
         ft.commit();

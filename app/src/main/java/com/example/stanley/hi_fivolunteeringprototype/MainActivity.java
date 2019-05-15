@@ -11,11 +11,13 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Toast;
 
+import java.util.List;
 import java.util.Stack;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ListFragment.OnListFragmentInteractionListener{
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -87,5 +89,22 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.my_toolbar);
         toolbar.setNavigationIcon(null);
     }
+
+    @Override
+    public void onAttachFragment(Fragment fragment) {
+        if (fragment instanceof ListFragment) {
+            ListFragment listFragment = (ListFragment) fragment;
+            listFragment.setOnListFragmentInteractionListener(this);
+        }
+    }
+
+    public void onEventSelected(int position) {
+        // The user selected the headline of an article from the HeadlinesFragment
+        // Do something here to display that article
+        Toast toast=Toast.makeText(getApplicationContext(),"Hello Javatpoint",Toast.LENGTH_SHORT);
+        toast.setMargin(50,50);
+        toast.show();
+    }
+
 
 }
