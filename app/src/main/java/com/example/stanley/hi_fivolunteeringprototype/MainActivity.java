@@ -14,11 +14,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -30,11 +32,17 @@ import org.w3c.dom.Text;
 import java.util.Stack;
 
 
+
+
 public class MainActivity extends AppCompatActivity {
+
+    public static boolean events = false;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -147,11 +155,13 @@ public class MainActivity extends AppCompatActivity {
         transaction.replace(R.id.fragment_container, newFragment);
         transaction.addToBackStack(null);
 
-// Commit the transaction
+        // Commit the transaction
         transaction.commit();
     }
 
     public void goBackHome (View view){
+
+        MainActivity.events = true;
 
         // Create new fragment and transaction
         Fragment newFragment = new HomeFragment();
