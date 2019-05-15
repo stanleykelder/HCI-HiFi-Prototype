@@ -18,7 +18,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-
 public class HomeFragment extends Fragment {
 
     @Nullable
@@ -32,6 +31,10 @@ public class HomeFragment extends Fragment {
         //This code sets title and arrow (in this case removes it)
         getActivity().setTitle("Home");
         ((MainActivity) getActivity()).removeArrow();
+
+        if(MainActivity.events){
+            getView().findViewById(R.id.textView4).setVisibility(View.GONE);
+        }
 
         final Context context = getActivity().getApplicationContext();
 
