@@ -3,6 +3,7 @@ package com.example.stanley.hi_fivolunteeringprototype;
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.text.Editable;
@@ -12,8 +13,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -40,14 +43,13 @@ public class AddFriendsFragment extends Fragment {
         friendsListView = getView().findViewById(R.id.article_list);
         friendsListView.setAdapter(adapter);
 
-        etSearch = getView().findViewById(R.id.etSearch);
+        etSearch = getView().findViewById(R.id.search_friend);
         etSearch.addTextChangedListener(new TextWatcher() {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 // Call back the Adapter with current character to Filter
                 adapter.getFilter().filter(s.toString());
-                Log.d("6: ", adapter.toString());
             }
 
             @Override
@@ -56,6 +58,21 @@ public class AddFriendsFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
+            }
+        });
+
+        Button invite = getView().findViewById(R.id.invite_friend);
+        invite.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                EditText email = getView().findViewById(R.id.input_invite_friend);
+                if(email.getText().equals(null))
+                {
+                    Toast.makeText(getActivity(), "Please insert valid a email address.", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Toast.makeText(getActivity(), "Invitation send to " + email.getText() + ".", Toast.LENGTH_LONG).show();
+                    email.setText(null);
+                }
             }
         });
     }

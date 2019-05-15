@@ -1,15 +1,21 @@
 package com.example.stanley.hi_fivolunteeringprototype;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Debug;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import java.util.ArrayList;
@@ -50,7 +56,7 @@ public class FriendsListAdapter extends BaseAdapter implements Filterable {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         // inflate the layout for each list row
         if (convertView == null) {
             convertView = LayoutInflater.from(context).
@@ -63,6 +69,18 @@ public class FriendsListAdapter extends BaseAdapter implements Filterable {
         // get the TextView for item name and item description
         TextView textViewItemTitle = convertView.findViewById(R.id.name);
         textViewItemTitle.setText(currentItem);
+
+        final Button addButton = convertView.findViewById(R.id.btn_add);
+        addButton.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                Toast.makeText(context, "Friend request send to " + filteredFriends.get(position), Toast.LENGTH_LONG).show();
+                addButton.setText("Added");
+                Drawable primaryButtonStyle = ContextCompat.getDrawable(context, R.drawable.success_button);
+                addButton.setBackground(primaryButtonStyle);
+            }
+        });
+
 
         // returns the view for the current row
         return convertView;
