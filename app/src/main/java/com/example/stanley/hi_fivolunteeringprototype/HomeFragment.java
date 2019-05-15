@@ -30,12 +30,13 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         //This code sets title and arrow (in this case removes it)
-        ((MainActivity) getActivity()).setTitle("Home");
+        getActivity().setTitle("Home");
         ((MainActivity) getActivity()).removeArrow();
 
         final Context context = getActivity().getApplicationContext();
 
         ProgressBar helps = (ProgressBar) getView().findViewById(R.id.help_level);
+
         helps.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -72,7 +73,7 @@ public class HomeFragment extends Fragment {
 
 
 
-    };
+    }
 
 
 }
