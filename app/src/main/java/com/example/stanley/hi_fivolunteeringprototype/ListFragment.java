@@ -1,7 +1,6 @@
 package com.example.stanley.hi_fivolunteeringprototype;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -11,12 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.stanley.hi_fivolunteeringprototype.dummy.DummyContent;
-//import com.example.stanley.hi_fivolunteeringprototype.dummy.Content;
-import com.example.stanley.hi_fivolunteeringprototype.dummy.DummyContent.DummyItem;
-//import com.example.stanley.hi_fivolunteeringprototype.dummy.Content.Item;
+//import com.example.stanley.hi_fivolunteeringprototype.dummy.DummyContent;
+import com.example.stanley.hi_fivolunteeringprototype.dummy.Content;
+//import com.example.stanley.hi_fivolunteeringprototype.dummy.DummyContent.DummyItem;
 
-import java.util.List;
 
 /**
  * A fragment representing a list of Items.
@@ -72,7 +69,7 @@ public class ListFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(Content.ITEMS, Content.TITLES, Content.LOCATIONS, Content.DATES, Content.DESCRIPTIONS, Content.PICTURES, mListener));
         }
         return view;
     }

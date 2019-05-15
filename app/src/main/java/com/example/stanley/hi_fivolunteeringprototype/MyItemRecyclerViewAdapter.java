@@ -4,11 +4,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+
 import com.example.stanley.hi_fivolunteeringprototype.ListFragment.OnListFragmentInteractionListener;
-import com.example.stanley.hi_fivolunteeringprototype.dummy.DummyContent.DummyItem;
-//import com.example.stanley.hi_fivolunteeringprototype.dummy.Content.Item;
+//import com.example.stanley.hi_fivolunteeringprototype.dummy.DummyContent.DummyItem;
+import com.example.stanley.hi_fivolunteeringprototype.dummy.Content.Item;
 
 import java.util.List;
 
@@ -19,11 +21,21 @@ import java.util.List;
  */
 public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private final List<Item> mValues;
+    private final List<String> Titles;
+    private final List<String> Locations;
+    private final List<String> Dates;
+    private final List<String> Descriptions;
+    private final List<Integer> Pictures;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyItemRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public MyItemRecyclerViewAdapter(List<Item> items, List<String> titles, List<String> locations, List<String> dates, List<String> descriptions, List<Integer> pictures, OnListFragmentInteractionListener listener) {
         mValues = items;
+        Titles = titles;
+        Locations = locations;
+        Dates = dates;
+        Descriptions = descriptions;
+        Pictures = pictures;
         mListener = listener;
     }
 
@@ -37,8 +49,13 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mIdView.setText(Titles.get(position));
+        holder.mLocationView.setText(Locations.get(position));
+        holder.mDateView.setText(Dates.get(position));
+        holder.mContentView.setText(Descriptions.get(position));
+        holder.mImageView.setImageResource(Pictures.get(position));
+        holder.mLocationIcon.setImageResource(R.drawable.ic_location_on_black_24dp);
+        holder.mCalendarIcon.setImageResource(R.drawable.ic_date_range_black_24dp);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,13 +78,24 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public DummyItem mItem;
+        public final TextView mLocationView;
+        public final TextView mDateView;
+        public final ImageView mImageView;
+        public final ImageView mLocationIcon;
+        public final ImageView mCalendarIcon;
+
+        public Item mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
             mIdView = (TextView) view.findViewById(R.id.item_number);
             mContentView = (TextView) view.findViewById(R.id.content);
+            mLocationView = (TextView) view.findViewById(R.id.text_location);
+            mDateView = (TextView) view.findViewById(R.id.text_date);
+            mImageView = (ImageView) view.findViewById(R.id.cardImage);
+            mLocationIcon = (ImageView) view.findViewById(R.id.location_icon);
+            mCalendarIcon = (ImageView) view.findViewById(R.id.calendar_icon);;
         }
 
         @Override
