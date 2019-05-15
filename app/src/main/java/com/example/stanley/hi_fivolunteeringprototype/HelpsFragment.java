@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.Button;
 
 import com.example.stanley.hi_fivolunteeringprototype.R;
 
@@ -37,6 +38,19 @@ public class HelpsFragment extends Fragment {
         ((MainActivity) getActivity()).setTitle("Help Level");
         ((MainActivity) getActivity()).addArrow();
 //        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
+
+        Button invite = getView().findViewById(R.id.friends_button);
+        invite.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                Fragment nextFragment = new AddFriendsFragment();
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, nextFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
 
         ObjectAnimator help_animation = ObjectAnimator.ofInt(getView().findViewById(R.id.help_level), "progress", 30);
         help_animation.setDuration(2000);
