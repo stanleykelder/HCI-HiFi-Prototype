@@ -1,5 +1,9 @@
 package com.example.stanley.hi_fivolunteeringprototype;
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
@@ -8,22 +12,40 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Toast;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.TextView;
+
+import java.util.List;
+import org.w3c.dom.Text;
 
 import java.util.Stack;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ListFragment.OnListFragmentInteractionListener{
+
+    public static boolean events = false;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        Toolbar myToolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
         Stack<Fragment> stack = new Stack<Fragment>();
 
@@ -86,6 +108,89 @@ public class MainActivity extends AppCompatActivity {
     public void removeArrow(){
         Toolbar toolbar = findViewById(R.id.my_toolbar);
         toolbar.setNavigationIcon(null);
+    }
+
+    @Override
+    public void onAttachFragment(Fragment fragment) {
+        if (fragment instanceof ListFragment) {
+            ListFragment listFragment = (ListFragment) fragment;
+            listFragment.setOnListFragmentInteractionListener(this);
+        }
+    }
+
+    public void onEventSelected(int position) {
+        // The user selected the headline of an article from the HeadlinesFragment
+        // Do something here to display that article
+        Toast toast=Toast.makeText(getApplicationContext(),"Hello Javatpoint",Toast.LENGTH_SHORT);
+        toast.setMargin(50,50);
+        toast.show();
+    }
+
+
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.radio_sat:
+                if (checked) {
+                    LinearLayout time_options;
+                    time_options = (LinearLayout) findViewById(R.id.choose_time);
+                    time_options.setVisibility(View.VISIBLE);
+                }
+
+                    break;
+            case R.id.radio_fri:
+                if (checked)
+                    // Ninjas rule
+                    break;
+            case R.id.radio_eleven:
+                if (checked) {
+                    Button offerHelp;
+                    offerHelp = (Button) findViewById(R.id.offer_help);
+                    offerHelp.setEnabled(true);
+                }
+                    break;
+            case R.id.radio_five:
+                if (checked)
+                    // Ninjas rule
+                    break;
+        }
+    }
+
+    public void requestSent (View view){
+        Log.d("MyApp","I am here");
+
+        // Create new fragment and transaction
+        Fragment newFragment = new RequestSentFragment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        // Replace whatever is in the fragment_container view with this fragment,
+        // and add the transaction to the back stack if needed
+        transaction.replace(R.id.fragment_container, newFragment);
+        transaction.addToBackStack(null);
+
+        // Commit the transaction
+        transaction.commit();
+    }
+
+    public void goBackHome (View view){
+
+        MainActivity.events = true;
+
+        // Create new fragment and transaction
+        Fragment newFragment = new HomeFragment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        // Replace whatever is in the fragment_container view with this fragment,
+        // and add the transaction to the back stack if needed
+        transaction.replace(R.id.fragment_container, newFragment);
+        transaction.addToBackStack(null);
+
+        // Commit the transaction
+        transaction.commit();
+
     }
 
 }

@@ -1,9 +1,15 @@
 package com.example.stanley.hi_fivolunteeringprototype;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.provider.DocumentsContract;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,11 +27,14 @@ public class SearchFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        ((MainActivity) getActivity()).setTitle("Search");
-        ((MainActivity) getActivity()).addArrow();
+        getActivity().setTitle("Search");
+        ((MainActivity) getActivity()).removeArrow();
 
-
-
-
+        //Handle the Child Fragment.
+        FragmentTransaction ft = getChildFragmentManager().beginTransaction();
+        ft.replace(R.id.fragment_container, new ListFragment());
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        ft.addToBackStack(null);
+        ft.commit();
     }
 }
