@@ -224,7 +224,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="Name"
-                        android:textAppearance="@style/h4"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
                         android:textSize="18sp"
                         app:fontFamily="@font/comfortaa" />
 
@@ -235,7 +235,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="Donations"
-                        android:textAppearance="@style/h4"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
                         android:textSize="18sp"
                         app:fontFamily="@font/comfortaa" />
 
@@ -246,7 +246,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="Helps"
-                        android:textAppearance="@style/h4"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
                         android:textSize="18sp"
                         app:fontFamily="@font/comfortaa" />
 
