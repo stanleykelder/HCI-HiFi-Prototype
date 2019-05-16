@@ -127,71 +127,7 @@ public class MainActivity extends AppCompatActivity implements ListFragment.OnLi
     }
 
 
-    public void onRadioButtonClicked(View view) {
-        // Is the button now checked?
-        boolean checked = ((RadioButton) view).isChecked();
 
-        // Check which radio button was clicked
-        switch(view.getId()) {
-            case R.id.radio_sat:
-                if (checked) {
-                    LinearLayout time_options;
-                    time_options = (LinearLayout) findViewById(R.id.choose_time);
-                    time_options.setVisibility(View.VISIBLE);
-                }
-
-                    break;
-            case R.id.radio_fri:
-                if (checked)
-                    // Ninjas rule
-                    break;
-            case R.id.radio_eleven:
-                if (checked) {
-                    Button offerHelp;
-                    offerHelp = (Button) findViewById(R.id.offer_help);
-                    offerHelp.setEnabled(true);
-                }
-                    break;
-            case R.id.radio_five:
-                if (checked)
-                    // Ninjas rule
-                    break;
-        }
-    }
-
-    public void requestSent (View view){
-        Log.d("MyApp","I am here");
-
-        // Create new fragment and transaction
-        Fragment newFragment = new RequestSentFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-
-        // Replace whatever is in the fragment_container view with this fragment,
-        // and add the transaction to the back stack if needed
-        transaction.replace(R.id.fragment_container, newFragment);
-        transaction.addToBackStack(null);
-
-        // Commit the transaction
-        transaction.commit();
-    }
-
-    public void goBackHome (View view){
-
-        MainActivity.events = true;
-
-        // Create new fragment and transaction
-        Fragment newFragment = new HomeFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-
-        // Replace whatever is in the fragment_container view with this fragment,
-        // and add the transaction to the back stack if needed
-        transaction.replace(R.id.fragment_container, newFragment);
-        transaction.addToBackStack(null);
-
-        // Commit the transaction
-        transaction.commit();
-
-    }
 
     public void onRadioButtonClicked(View view) {
         // Is the button now checked?
