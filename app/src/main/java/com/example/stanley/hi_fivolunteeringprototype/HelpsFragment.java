@@ -35,7 +35,7 @@ public class HelpsFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        ((MainActivity) getActivity()).setTitle("Help Level");
+        getActivity().setTitle("Help Level");
         ((MainActivity) getActivity()).addArrow();
 //        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
 
@@ -56,5 +56,6 @@ public class HelpsFragment extends Fragment {
         help_animation.setDuration(2000);
         help_animation.setInterpolator(new AccelerateDecelerateInterpolator());
         help_animation.start();
+
     }
 }
