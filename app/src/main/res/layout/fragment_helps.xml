@@ -140,13 +140,7 @@
                 </LinearLayout>
 
                 <Button
-<<<<<<< HEAD
                     android:id="@+id/friends_button"
-||||||| merged common ancestors
-                    android:id="@+id/button"
-=======
-                    android:id="@+id/offer_help"
->>>>>>> master
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
