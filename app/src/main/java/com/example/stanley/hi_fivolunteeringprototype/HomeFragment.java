@@ -34,6 +34,7 @@ public class HomeFragment extends Fragment {
 
         if(MainActivity.events){
             getView().findViewById(R.id.textView4).setVisibility(View.GONE);
+            getView().findViewById(R.id.upcoming_event).setVisibility(View.VISIBLE);
         }
 
         final Context context = getActivity().getApplicationContext();

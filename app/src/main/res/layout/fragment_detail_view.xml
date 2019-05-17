@@ -14,12 +14,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="top"
             android:orientation="vertical" >
 
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="match_parent"
-                android:layout_height="226dp"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
                 android:layout_gravity="top"
                 app:srcCompat="@drawable/event_image" />
 
@@ -219,7 +222,8 @@
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:text="Help is needed with all kind of small things in the elderly house of Amalia. Examples of tasks are: serving food, playing game with the elderly or helping them when walking."
                 android:textAppearance="@style/h6"
                 app:fontFamily="@font/comfortaa" />
@@ -233,6 +237,7 @@
                 android:backgroundTint="@color/accent"
                 android:onClick="requestSent"
                 android:enabled="false"
+                android:background="@drawable/primary_button"
                 android:text="OFFER HELP"
                 android:textAppearance="@style/h5"
                 android:textColor="#FFFFFF" />
