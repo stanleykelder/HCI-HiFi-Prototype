@@ -1,55 +1,45 @@
 package com.example.stanley.hi_fivolunteeringprototype;
 
+import android.app.usage.UsageEvents;
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.os.Debug;
-import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.stanley.hi_fivolunteeringprototype.dummy.Content;
 
 import java.util.ArrayList;
 
 
-
-public class FriendsListAdapter extends BaseAdapter implements Filterable {
+public class SearchEventAdapter extends BaseAdapter implements Filterable {
     private Context context; //context
 
-    // TODO: Use Friend class objects to show according picutre (and add picure)
-    ArrayList<String> friends = new ArrayList<String>() {{
-        add("Fernando Rodriguez");
-        add("Stanley Kelder");
-        add("Yerai Zamorano");
-        add("Jie Gao");
-        add("Periandros Papamarkos");
-        add("Lukas Bittner");
-    }};
-    ArrayList<String> filteredFriends = friends;
+
+    ArrayList<VoluEvent> voluEvents = new ArrayList<VoluEvent>();
+    ArrayList<VoluEvent> filteredVoluEvents;
 
     //public constructor
-    public FriendsListAdapter(Context context) {
+    public SearchEventAdapter(Context context) {
+        for ( int i = 0; i < Content.TITLES.size(); i ++ ) {
+            voluEvents.add(new VoluEvent(Content.TITLES.get(i),Content.DATES.get(i), Content.LOCATIONS.get(i), Content.DESCRIPTIONS.get(i), Content.PICTURES.get(i)));
+        }
+        filteredVoluEvents = voluEvents;
         this.context = context;
     }
 
     @Override
     public int getCount() {
-        return filteredFriends.size(); //returns total of items in the list
+        return filteredVoluEvents.size(); //returns total of items in the list
     }
 
     @Override
     public Object getItem(int position) {
-        return filteredFriends.get(position); //returns list item at the specified position
+        return filteredVoluEvents.get(position); //returns list item at the specified position
     }
 
     @Override
@@ -62,17 +52,35 @@ public class FriendsListAdapter extends BaseAdapter implements Filterable {
         // inflate the layout for each list row
         if (convertView == null) {
             convertView = LayoutInflater.from(context).
-                    inflate(R.layout.friend_list_item, parent, false);
+                    inflate(R.layout.fragment_list, parent, false);
         }
 
         // get current item to be displayed
-        String currentItem = (String) getItem(position);
+        VoluEvent currentItem = (VoluEvent) getItem(position);
 
         // get the TextView for item name and item description
-        TextView textViewItemTitle = convertView.findViewById(R.id.name);
-        textViewItemTitle.setText(currentItem);
+        TextView textViewItemTitle = convertView.findViewById(R.id.item_number);
+        textViewItemTitle.setText(currentItem.title);
 
-        ImageView pic = convertView.findViewById(R.id.profile_pic);
+
+        TextView TextViewContentView = convertView.findViewById(R.id.content);
+        TextViewContentView.setText(currentItem.content);
+
+        TextView mLocationView = convertView.findViewById(R.id.text_location);
+        mLocationView.setText(currentItem.location);
+
+        TextView mDateView = convertView.findViewById(R.id.text_date);
+        mDateView.setText(currentItem.date);
+
+        ImageView mImageView = convertView.findViewById(R.id.cardImage);
+        ImageView mLocationIcon = convertView.findViewById(R.id.location_icon);
+        ImageView mCalendarIcon = convertView.findViewById(R.id.calendar_icon);
+
+        mImageView.setImageResource(currentItem.picture);
+        mLocationIcon.setImageResource(R.drawable.ic_location_on_black_24dp);
+        mCalendarIcon.setImageResource(R.drawable.ic_date_range_black_24dp);
+
+/*        ImageView pic = convertView.findViewById(R.id.profile_pic);
         Drawable primaryButtonStyle;
         if(currentItem=="Stanley Kelder") primaryButtonStyle = ContextCompat.getDrawable(context, R.drawable.calendar_icon);
         else if(currentItem=="Yerai Zamorano") primaryButtonStyle = ContextCompat.getDrawable(context, R.drawable.event_image);
@@ -81,19 +89,7 @@ public class FriendsListAdapter extends BaseAdapter implements Filterable {
         else if(currentItem=="Lukas Bittner Zamorano") primaryButtonStyle = ContextCompat.getDrawable(context, R.drawable.event_image);
         else if(currentItem=="Fernando Rodriguez") primaryButtonStyle = ContextCompat.getDrawable(context, R.drawable.trophy);
         else primaryButtonStyle = ContextCompat.getDrawable(context, R.drawable.sent);
-        pic.setImageDrawable(primaryButtonStyle);
-
-
-        final Button addButton = convertView.findViewById(R.id.btn_add);
-        addButton.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-                Toast.makeText(context, "Friend request send to " + filteredFriends.get(position), Toast.LENGTH_LONG).show();
-                addButton.setText("Added");
-                Drawable primaryButtonStyle = ContextCompat.getDrawable(context, R.drawable.success_button);
-                addButton.setBackground(primaryButtonStyle);
-            }
-        });
+        pic.setImageDrawable(primaryButtonStyle);*/
 
 
         // returns the view for the current row
@@ -108,17 +104,17 @@ public class FriendsListAdapter extends BaseAdapter implements Filterable {
             @Override
             protected void publishResults(CharSequence constraint, FilterResults results) {
 
-                filteredFriends = (ArrayList<String>) results.values; // has the filtered values
+                filteredVoluEvents = (ArrayList<VoluEvent>) results.values; // has the filtered values
                 notifyDataSetChanged();  // notifies the data with new filtered values
             }
 
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
                 FilterResults results = new FilterResults();        // Holds the results of a filtering operation in values
-                ArrayList<String> FilteredArrList = new ArrayList<String>();
+                ArrayList<VoluEvent> FilteredArrList = new ArrayList<VoluEvent>();
 
-                if (friends == null) {
-                    friends = new ArrayList<String>(filteredFriends); // saves the original data in mOriginalValues
+                if (voluEvents == null) {
+                    voluEvents = new ArrayList<VoluEvent>(filteredVoluEvents); // saves the original data in mOriginalValues
                 }
 
                 /********
@@ -130,14 +126,18 @@ public class FriendsListAdapter extends BaseAdapter implements Filterable {
                 if (constraint == null || constraint.length() == 0) {
 
                     // set the Original result to return
-                    results.count = friends.size();
-                    results.values = friends;
+                    results.count = voluEvents.size();
+                    results.values = voluEvents;
                 } else {
                     constraint = constraint.toString().toLowerCase();
-                    for (int i = 0; i < friends.size(); i++) {
-                        String data = friends.get(i);
-                        if (data.toLowerCase().startsWith(constraint.toString())) {
-                            FilteredArrList.add(friends.get(i));
+                    for (int i = 0; i < voluEvents.size(); i++) {
+                        String data = voluEvents.get(i).title;
+                        String data2 = voluEvents.get(i).location;
+                        String data3 = voluEvents.get(i).content;
+                        if (data.toLowerCase().startsWith(constraint.toString()) ||
+                                data2.toLowerCase().startsWith(constraint.toString()) ||
+                                data3.toLowerCase().startsWith(constraint.toString())) {
+                            FilteredArrList.add(voluEvents.get(i));
                         }
                     }
                     // set the Filtered result to return
@@ -151,3 +151,5 @@ public class FriendsListAdapter extends BaseAdapter implements Filterable {
         return filter;
     }
 }
+
+
