@@ -234,10 +234,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/accent"
                 android:onClick="requestSent"
                 android:enabled="false"
-                android:background="@drawable/primary_button"
+                android:background="@drawable/disabled_button"
                 android:text="OFFER HELP"
                 android:textAppearance="@style/h5"
                 android:textColor="#FFFFFF" />

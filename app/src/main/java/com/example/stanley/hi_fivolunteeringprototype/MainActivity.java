@@ -144,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
                     Button offerHelp;
                     offerHelp = (Button) findViewById(R.id.offer_help);
                     offerHelp.setEnabled(true);
+                    offerHelp.setBackgroundResource(R.drawable.primary_button);
                 }
                     break;
             case R.id.radio_five:
@@ -154,7 +155,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void requestSent (View view){
-        Log.d("MyApp","I am here");
 
         // Create new fragment and transaction
         Fragment newFragment = new RequestSentFragment();
