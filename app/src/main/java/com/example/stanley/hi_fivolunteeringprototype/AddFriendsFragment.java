@@ -1,24 +1,17 @@
 package com.example.stanley.hi_fivolunteeringprototype;
 
-import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
 
 public class AddFriendsFragment extends Fragment {
     private FriendsListAdapter adapter;
@@ -40,7 +33,7 @@ public class AddFriendsFragment extends Fragment {
 //        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
 
         adapter = new FriendsListAdapter(this.getContext());
-        friendsListView = getView().findViewById(R.id.article_list);
+        friendsListView = getView().findViewById(R.id.event_list);
         friendsListView.setAdapter(adapter);
 
         etSearch = getView().findViewById(R.id.search_friend);

@@ -14,7 +14,7 @@
 
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/profile_pic"
             android:layout_width="56dp"
             android:layout_height="56dp"
             app:srcCompat="@drawable/cookies_event" />

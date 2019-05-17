@@ -5,6 +5,7 @@ import android.media.Image;
 
 import com.example.stanley.hi_fivolunteeringprototype.R;
 
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,12 +25,12 @@ public class Content {
     public static final List<Item> ITEMS = new ArrayList<Item>();
 
 //    Array of strings
-    public static final List<String> TITLES = new ArrayList<String>();
-    public static final List<String> LOCATIONS = new ArrayList<String>();
-    public static final List<String> DATES = new ArrayList<String>();
-    public static final List<String> DESCRIPTIONS = new ArrayList<String>();
+    public static final ArrayList<String> TITLES = new ArrayList<String>();
+    public static final ArrayList<String> LOCATIONS = new ArrayList<String>();
+    public static final ArrayList<String> DATES = new ArrayList<String>();
+    public static final ArrayList<String> DESCRIPTIONS = new ArrayList<String>();
 
-    public static final List<Integer> PICTURES = new ArrayList<Integer>();
+    public static final ArrayList<Integer> PICTURES = new ArrayList<Integer>();
 
 
     /**
