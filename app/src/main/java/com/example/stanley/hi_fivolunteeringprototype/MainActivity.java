@@ -33,7 +33,7 @@ import org.w3c.dom.Text;
 import java.util.Stack;
 
 
-public class MainActivity extends AppCompatActivity implements ListFragment.OnListFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity {
 
     public static boolean events = false;
 
@@ -110,13 +110,7 @@ public class MainActivity extends AppCompatActivity implements ListFragment.OnLi
         toolbar.setNavigationIcon(null);
     }
 
-    @Override
-    public void onAttachFragment(Fragment fragment) {
-        if (fragment instanceof ListFragment) {
-            ListFragment listFragment = (ListFragment) fragment;
-            listFragment.setOnListFragmentInteractionListener(this);
-        }
-    }
+
 
     public void onEventSelected(int position) {
         // The user selected the headline of an article from the HeadlinesFragment
