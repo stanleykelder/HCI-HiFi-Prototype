@@ -77,8 +77,8 @@ public class SearchEventAdapter extends BaseAdapter implements Filterable {
         ImageView mCalendarIcon = convertView.findViewById(R.id.calendar_icon);
 
         mImageView.setImageResource(currentItem.picture);
-        mLocationIcon.setImageResource(R.drawable.ic_location_on_black_24dp);
-        mCalendarIcon.setImageResource(R.drawable.ic_date_range_black_24dp);
+        mLocationIcon.setImageResource(R.drawable.location_icon);
+        mCalendarIcon.setImageResource(R.drawable.calendar_icon);
 
 /*        ImageView pic = convertView.findViewById(R.id.profile_pic);
         Drawable primaryButtonStyle;
@@ -134,9 +134,9 @@ public class SearchEventAdapter extends BaseAdapter implements Filterable {
                         String data = voluEvents.get(i).title;
                         String data2 = voluEvents.get(i).location;
                         String data3 = voluEvents.get(i).content;
-                        if (data.toLowerCase().startsWith(constraint.toString()) ||
-                                data2.toLowerCase().startsWith(constraint.toString()) ||
-                                data3.toLowerCase().startsWith(constraint.toString())) {
+                        if (data.toLowerCase().contains(constraint.toString()) ||
+                                data2.toLowerCase().contains(constraint.toString()) ||
+                                data3.toLowerCase().contains(constraint.toString())) {
                             FilteredArrList.add(voluEvents.get(i));
                         }
                     }

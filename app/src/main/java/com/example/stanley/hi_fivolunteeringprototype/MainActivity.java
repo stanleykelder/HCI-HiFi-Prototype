@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
@@ -37,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
 
     public static boolean events = false;
 
+    BottomNavigationView bottomNav;
+
+    public static boolean friends = false;
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
         Stack<Fragment> stack = new Stack<Fragment>();
 
-        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
 
         //I added this if statement to keep the selected fragment when rotating the device
@@ -120,7 +125,13 @@ public class MainActivity extends AppCompatActivity {
         toast.show();
     }
 
+    public void hideNavBar(){
+        bottomNav.setVisibility(View.GONE);
+    }
 
+    public void showNavBar(){
+        bottomNav.setVisibility(View.VISIBLE);
+    }
     public void onRadioButtonClicked(View view) {
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
@@ -169,6 +180,32 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
     }
 
+    public void goEvent (View view){
+
+        Fragment newFragment;
+            TextView element = (TextView) view.findViewById(R.id.item_number);
+            if(element.getText() != "Helping the elderly") {
+
+                // Create new fragment and transaction
+                newFragment = new NotImplementedFragment();
+
+            }else{
+                // Create new fragment and transaction
+                newFragment = new DetailViewFragment();
+            }
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        // Replace whatever is in the fragment_container view with this fragment,
+        // and add the transaction to the back stack if needed
+        transaction.replace(R.id.fragment_container, newFragment);
+        transaction.addToBackStack(null);
+
+        // Commit the transaction
+        transaction.commit();
+
+    }
+
     public void goBackHome (View view){
 
         MainActivity.events = true;
@@ -186,5 +223,30 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
 
     }
+
+    public void goAddFriends (View view){
+
+        // Create new fragment and transaction
+        Fragment newFragment = new AddFriendsFragment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        // Replace whatever is in the fragment_container view with this fragment,
+        // and add the transaction to the back stack if needed
+        transaction.replace(R.id.fragment_container, newFragment);
+        transaction.addToBackStack(null);
+
+        // Commit the transaction
+        transaction.commit();
+
+    }
+
+    public void addedFriend (View view){
+        Button btn = view.findViewById(R.id.btn_add);
+        btn.setText("ADDED");
+        btn.setBackgroundResource(R.drawable.primary_button_ok);
+        friends = true;
+
+    }
+
 
 }

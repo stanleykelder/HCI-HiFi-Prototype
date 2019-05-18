@@ -50,49 +50,24 @@ public class Content {
     static {
         addString("Football tournament");
         addString("Child education");
-        addString("Elderly");
+        addString("Toys collection");
         addString("Food festival");
-        addString("Refugee clothing");addString("Football tournament");
-        addString("Child education");
-        addString("Elderly");
-        addString("Food festival");
-        addString("Refugee clothing");addString("Football tournament");
-        addString("Child education");
-        addString("Elderly");
-        addString("Food festival");
-        addString("Refugee clothing");addString("Football tournament");
-        addString("Child education");
-        addString("Elderly");
-        addString("Food festival");
-        addString("Refugee clothing");addString("Football tournament");
-        addString("Child education");
-        addString("Elderly");
-        addString("Food festival");
+        /**/addString("Helping the elderly");
         addString("Refugee clothing");
+        addString("Kids race");
+
     }
 
     static {
         addLocation("Aluche");
-        addLocation("Lavapies");
+        addLocation("La Latina");
         addLocation("Moncloa");
-        addLocation("Montegancedo");
-        addLocation("Salamanca");addLocation("Aluche");
-        addLocation("Lavapies");
-        addLocation("Moncloa");
-        addLocation("Montegancedo");
-        addLocation("Salamanca");addLocation("Aluche");
-        addLocation("Lavapies");
-        addLocation("Moncloa");
-        addLocation("Montegancedo");
-        addLocation("Salamanca");addLocation("Aluche");
-        addLocation("Lavapies");
-        addLocation("Moncloa");
-        addLocation("Montegancedo");
-        addLocation("Salamanca");addLocation("Aluche");
-        addLocation("Lavapies");
-        addLocation("Moncloa");
-        addLocation("Montegancedo");
+        addLocation("Barcelona");
+        /**/addLocation("Lavapies");
         addLocation("Salamanca");
+        addLocation("Valencia");
+
+
     }
 
     static {
@@ -100,23 +75,10 @@ public class Content {
         addDate("15.06.2019");
         addDate("14.06.2019");
         addDate("01.07.2019");
-        addDate("30.06.2019");addDate("21.06.2019");
-        addDate("15.06.2019");
-        addDate("14.06.2019");
-        addDate("01.07.2019");
-        addDate("30.06.2019");addDate("21.06.2019");
-        addDate("15.06.2019");
-        addDate("14.06.2019");
-        addDate("01.07.2019");
-        addDate("30.06.2019");addDate("21.06.2019");
-        addDate("15.06.2019");
-        addDate("14.06.2019");
-        addDate("01.07.2019");
-        addDate("30.06.2019");addDate("21.06.2019");
-        addDate("15.06.2019");
-        addDate("14.06.2019");
-        addDate("01.07.2019");
+      /**/  addDate("07.06.2019");
         addDate("30.06.2019");
+        addDate("15.06.2019");
+
     }
 
     static {
@@ -124,52 +86,21 @@ public class Content {
         addPicture(R.drawable.ic_friends);
         addPicture(R.drawable.ic_donations);
         addPicture(R.drawable.ic_helps);
+       /**/ addPicture(R.drawable.event_7);
         addPicture(R.drawable.ic_friends);
-        addPicture(R.drawable.ic_donations);
-        addPicture(R.drawable.ic_helps);
-        addPicture(R.drawable.ic_friends);
-        addPicture(R.drawable.ic_donations);
-        addPicture(R.drawable.ic_helps);
-        addPicture(R.drawable.ic_friends);
-        addPicture(R.drawable.ic_donations);
-        addPicture(R.drawable.ic_helps);
-        addPicture(R.drawable.ic_friends);
-        addPicture(R.drawable.ic_donations);
-        addPicture(R.drawable.ic_helps);
-        addPicture(R.drawable.ic_friends);
-        addPicture(R.drawable.ic_donations);
-        addPicture(R.drawable.ic_helps);
-        addPicture(R.drawable.ic_friends);
-        addPicture(R.drawable.ic_donations);
-        addPicture(R.drawable.ic_helps);
-        addPicture(R.drawable.ic_friends);
-        addPicture(R.drawable.ic_donations);
         addPicture(R.drawable.ic_donations);
 
     }
 
     static {
         addDescription("Coaches needed for our youngest teams!");
-        addDescription("Do you want to help out our childeren that need some extra explanations?");
+        addDescription("Do you want to help out our children that need some extra explanations?");
         addDescription("In this elderly house we could always use help and you do not need any experience.");
         addDescription("We organize a food festival for the homeless people and are looking for people to help share the food fairly");
+        /**/   addDescription("In this elderly house we could always use help and you do not need any experience.");
         addDescription("To collect refugee clothes we look for people that want to go and collect clothes at peoples houses.");addDescription("Coaches needed for our youngest teams!");
-        addDescription("Do you want to help out our childeren that need some extra explanations?");
-        addDescription("In this elderly house we could always use help and you do not need any experience.");
-        addDescription("We organize a food festival for the homeless people and are looking for people to help share the food fairly");
-        addDescription("To collect refugee clothes we look for people that want to go and collect clothes at peoples houses.");addDescription("Coaches needed for our youngest teams!");
-        addDescription("Do you want to help out our childeren that need some extra explanations?");
-        addDescription("In this elderly house we could always use help and you do not need any experience.");
-        addDescription("We organize a food festival for the homeless people and are looking for people to help share the food fairly");
-        addDescription("To collect refugee clothes we look for people that want to go and collect clothes at peoples houses.");addDescription("Coaches needed for our youngest teams!");
-        addDescription("Do you want to help out our childeren that need some extra explanations?");
-        addDescription("In this elderly house we could always use help and you do not need any experience.");
-        addDescription("We organize a food festival for the homeless people and are looking for people to help share the food fairly");
-        addDescription("To collect refugee clothes we look for people that want to go and collect clothes at peoples houses.");addDescription("Coaches needed for our youngest teams!");
-        addDescription("Do you want to help out our childeren that need some extra explanations?");
-        addDescription("In this elderly house we could always use help and you do not need any experience.");
-        addDescription("We organize a food festival for the homeless people and are looking for people to help share the food fairly");
-        addDescription("To collect refugee clothes we look for people that want to go and collect clothes at peoples houses.");
+        addDescription("Do you want to help out our children that need some extra explanations?");
+
     }
 
     private static void addItem(Item item) {

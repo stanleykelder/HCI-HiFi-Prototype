@@ -13,10 +13,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -34,7 +37,7 @@ public class FriendsFragment extends Fragment {
 
 
     List<HashMap<String, String>> aList = new ArrayList<HashMap<String, String>>();
-    private EditText etSearch;
+    private EditText search;
 
     public static void setListViewHeightBasedOnChildren
             (ListView listView) {
@@ -67,9 +70,32 @@ public class FriendsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+
+        ((MainActivity)getActivity()).hideNavBar();
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_friends, container, false);
 
+        aList.clear();
+
+        return view;
+    }
+
+
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        ((MainActivity) getActivity()).setTitle("Friends");
+        ((MainActivity) getActivity()).addArrow();
+//        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
+        ObjectAnimator help_animation = ObjectAnimator.ofInt(getView().findViewById(R.id.help_level), "progress", 30);
+        help_animation.setDuration(2000);
+        help_animation.setInterpolator(new AccelerateDecelerateInterpolator());
+        help_animation.start();
+
+        ObjectAnimator donations_animation = ObjectAnimator.ofInt(getView().findViewById(R.id.donation_level), "progress", 80);
+        donations_animation.setDuration(2000);
+        donations_animation.setInterpolator(new AccelerateDecelerateInterpolator());
+        donations_animation.start();
 
         // Array of strings for ListView Title
         String[] name = new String[]{
@@ -77,7 +103,7 @@ public class FriendsFragment extends Fragment {
         };
 
         int[] image = new int[]{
-                R.drawable.person_1, R.drawable.person_1,R.drawable.person_1,R.drawable.person_1,
+                R.drawable.person_1, R.drawable.person_2,R.drawable.person_3,R.drawable.person_4,
         };
 
         String[] donations = new String[]{
@@ -99,6 +125,15 @@ public class FriendsFragment extends Fragment {
             aList.add(hm);
         }
 
+        if(MainActivity.friends){
+            HashMap<String, String > hm = new HashMap<String, String>();
+            hm.put("name", "Olenna Tyrell");
+            hm.put("image", Integer.toString(R.drawable.friends_3));
+            hm.put("donations", "10");
+            hm.put("helps", "5");
+            aList.add(hm);
+        }
+
         String[] from = {"name", "image", "donations", "helps"};
         int[] to = {R.id.name, R.id.profile_img, R.id.donation_number, R.id.helps_number};
 
@@ -107,25 +142,52 @@ public class FriendsFragment extends Fragment {
         lv.setAdapter(simpleAdapter);
         setListViewHeightBasedOnChildren(lv);
 
-        return view;
+
+        // Locate the EditText in listview_main.xml
+        search = getView().findViewById(R.id.search_thing);
+
+        // Capture Text in EditText
+        search.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable arg0) {
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence arg0, int arg1,
+                                          int arg2, int arg3) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onTextChanged(CharSequence arg0, int arg1, int arg2,
+                                      int arg3) {
+
+                String text = search.getText().toString().toLowerCase();
+
+                Log.d("texto",text);
+                List<HashMap<String, String>> filtered_List = new ArrayList<HashMap<String, String>>();
+                for(int i=0; i < aList.size(); i++){
+
+                    if(aList.get(i).toString().toLowerCase().contains(text)){
+                        filtered_List.add(aList.get(i));
+                        Log.d("uno",aList.get(i).toString());
+                    }
+                }
+
+                Log.d("hole",filtered_List.toString());
+                String[] from = {"name", "image", "donations", "helps"};
+                int[] to = {R.id.name, R.id.profile_img, R.id.donation_number, R.id.helps_number};
+
+                SimpleAdapter simpleAdapter = new SimpleAdapter(getActivity(), filtered_List, R.layout.friend_status_list, from, to);
+                ListView lv = (ListView) getView().findViewById(R.id.lista_amigos);
+                lv.setAdapter(simpleAdapter);
+                setListViewHeightBasedOnChildren(lv);
+            }
+        });
     }
 
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        ((MainActivity) getActivity()).setTitle("Friends");
-        ((MainActivity) getActivity()).addArrow();
-//        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
-        ObjectAnimator help_animation = ObjectAnimator.ofInt(getView().findViewById(R.id.help_level), "progress", 30);
-        help_animation.setDuration(2000);
-        help_animation.setInterpolator(new AccelerateDecelerateInterpolator());
-        help_animation.start();
-
-        ObjectAnimator donations_animation = ObjectAnimator.ofInt(getView().findViewById(R.id.donation_level), "progress", 80);
-        donations_animation.setDuration(2000);
-        donations_animation.setInterpolator(new AccelerateDecelerateInterpolator());
-        donations_animation.start();
-    }
 
 
 }

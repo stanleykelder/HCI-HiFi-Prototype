@@ -20,6 +20,7 @@ public class HelpsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        ((MainActivity)getActivity()).hideNavBar();
         return inflater.inflate(R.layout.fragment_helps, container, false);
 
 
@@ -43,7 +44,7 @@ public class HelpsFragment extends Fragment {
         invite.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                Fragment nextFragment = new AddFriendsFragment();
+                Fragment nextFragment = new FriendsFragment();
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, nextFragment);
                 fragmentTransaction.addToBackStack(null);

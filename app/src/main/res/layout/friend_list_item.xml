@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="72dp"
-    android:layout_marginLeft="20dp"
-    android:layout_marginRight="20dp"
-    android:layout_marginBottom="8dp"
+    android:layout_height="wrap_content"
+    android:paddingBottom="8dp"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
     android:gravity="center_vertical"
     android:orientation="horizontal"
     app:layout_behavior="@string/appbar_scrolling_view_behavior" >
@@ -15,30 +16,39 @@
 
         <ImageView
             android:id="@+id/profile_pic"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             app:srcCompat="@drawable/cookies_event" />
 
     <TextView
         android:id="@+id/name"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_weight="1"
         android:text="Stanley Kelder"
+        android:textAppearance="@style/h3"
+        android:layout_marginRight="20dp"
         android:textColor="@color/primary_text"
         app:fontFamily="@font/comfortaa" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="end"
+        android:orientation="horizontal">
+
         <Button
             android:id="@+id/btn_add"
-            android:layout_width="200dp"
+            android:onClick="addedFriend"
+            android:layout_width="80dp"
             android:layout_height="38dp"
-            android:layout_weight="1"
+            android:layout_gravity="center_vertical|end"
             android:background="@drawable/primary_button"
-            android:text="+ Add"
+            android:text="+ ADD"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@color/icons" />
-
     </LinearLayout>
+
+</LinearLayout>
 
 
