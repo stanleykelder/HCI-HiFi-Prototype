@@ -1,44 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
-    <Button
-        android:id="@+id/offer_help"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="10dp"
-        android:layout_weight="1"
-        android:background="@drawable/primary_button"
-        android:enabled="true"
-        android:onClick="goAddFriends"
-        android:text="ADD FRIENDS"
-        android:visibility="gone"
-        android:textAppearance="@style/h5"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="417dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/offer_help"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -242,17 +220,17 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp">
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Friends"
-                    android:textAppearance="@style/h1"/>
+                    android:textAppearance="@style/h1" />
 
                 <TextView
                     android:id="@+id/add_friends"
@@ -268,33 +246,34 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="start"
-                android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginBottom="8dp"
+                android:gravity="start"
                 android:orientation="horizontal">
 
                 <TextView
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Order by:"
                     android:layout_marginRight="20dp"
-                    android:textAppearance="@style/h5"/>
+                    android:text="Order by:"
+                    android:textAppearance="@style/h5" />
 
                 <TextView
                     android:id="@+id/order_donations"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Donations"
                     android:layout_marginRight="20dp"
-                    android:textAppearance="@style/h6"/>
+                    android:text="Donations"
+                    android:textAppearance="@style/h6" />
+
                 <TextView
                     android:id="@+id/order_helps"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Helps"
-                    android:textAppearance="@style/h6"/>
+                    android:textAppearance="@style/h6" />
 
             </LinearLayout>
 
@@ -311,4 +290,4 @@
     </ScrollView>
 
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

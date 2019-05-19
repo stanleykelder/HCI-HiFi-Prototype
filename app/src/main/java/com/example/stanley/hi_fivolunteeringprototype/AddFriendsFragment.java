@@ -74,7 +74,7 @@ public class AddFriendsFragment extends Fragment {
         ((MainActivity) getActivity()).addArrow();
 
         String[] name = new String[]{
-                "Obara Sand", "Oberyn Martell", "Olenna Tyrell", "Olyvar",
+                "Obara Sand", "Oberyn", "Olenna Tyrell", "Olyvar",
         };
 
         int[] image = new int[]{
