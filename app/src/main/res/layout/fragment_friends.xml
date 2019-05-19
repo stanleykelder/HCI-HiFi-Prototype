@@ -23,6 +23,7 @@
         android:enabled="true"
         android:onClick="goAddFriends"
         android:text="ADD FRIENDS"
+        android:visibility="gone"
         android:textAppearance="@style/h5"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -235,6 +236,31 @@
                     android:hint="Search friends"
                     android:textColor="#474747" />
 
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Friends"
+                    android:textAppearance="@style/h1"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:textColor="@color/primary"
+                    android:text="+ ADD FRIENDS"
+                    android:onClick="goAddFriends"
+                    android:textAppearance="@style/h6"/>
             </LinearLayout>
 
             <ListView

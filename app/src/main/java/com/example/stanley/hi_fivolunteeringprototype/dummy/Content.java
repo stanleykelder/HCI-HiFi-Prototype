@@ -83,12 +83,12 @@ public class Content {
 
     static {
         addPicture(R.drawable.football);
-        addPicture(R.drawable.child_education);
+        addPicture(R.drawable.child);
         addPicture(R.drawable.toys_event);
-        addPicture(R.drawable.food_festival);
-       /**/ addPicture(R.drawable.event_7);
-        addPicture(R.drawable.refugee_clothing);
-        addPicture(R.drawable.trophy);
+        addPicture(R.drawable.food);
+       /**/ addPicture(R.drawable.elderly_event);
+        addPicture(R.drawable.clothes);
+        addPicture(R.drawable.kids_run);
 
     }
 
@@ -98,8 +98,8 @@ public class Content {
         addDescription("Because every child deserves a present for his or her birthday we are collecting toys.");
         addDescription("We organize a food festival for the homeless people and are looking for people to help share the food fairly");
         /**/   addDescription("In this elderly house we could always use help and you do not need any experience.");
-        addDescription("To collect refugee clothes we look for people that want to go and collect clothes at peoples houses.");addDescription("Coaches needed for our youngest teams!");
-        addDescription("Do you want to help out our children that need some extra explanations?");
+        addDescription("To collect refugee clothes we look for people that want to go and collect clothes at peoples houses.");
+        addDescription("Coaches needed for our youngest teams!");
 
     }
 
