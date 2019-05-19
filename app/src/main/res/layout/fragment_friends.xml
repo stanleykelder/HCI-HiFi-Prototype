@@ -253,14 +253,49 @@
                     android:layout_height="wrap_content"
                     android:text="Friends"
                     android:textAppearance="@style/h1"/>
+
                 <TextView
+                    android:id="@+id/add_friends"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
-                    android:textColor="@color/primary"
-                    android:text="+ ADD FRIENDS"
                     android:onClick="goAddFriends"
+                    android:text="+ ADD FRIENDS"
+                    android:textAppearance="@style/h6"
+                    android:textColor="@color/primary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Order by:"
+                    android:layout_marginRight="20dp"
+                    android:textAppearance="@style/h5"/>
+
+                <TextView
+                    android:id="@+id/order_donations"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Donations"
+                    android:layout_marginRight="20dp"
                     android:textAppearance="@style/h6"/>
+                <TextView
+                    android:id="@+id/order_helps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Helps"
+                    android:textAppearance="@style/h6"/>
+
             </LinearLayout>
 
             <ListView

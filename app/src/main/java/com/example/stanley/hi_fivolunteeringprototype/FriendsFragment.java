@@ -3,6 +3,7 @@ package com.example.stanley.hi_fivolunteeringprototype;
 import android.animation.ObjectAnimator;
 import android.app.ListActivity;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -25,6 +26,9 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.sql.Array;
 import java.util.ArrayList;
@@ -184,6 +188,65 @@ public class FriendsFragment extends Fragment {
                 ListView lv = (ListView) getView().findViewById(R.id.lista_amigos);
                 lv.setAdapter(simpleAdapter);
                 setListViewHeightBasedOnChildren(lv);
+            }
+        });
+
+
+        final TextView order_donations = getView().findViewById(R.id.order_donations);
+        order_donations.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                List<HashMap<String, String>> filtered_List = new ArrayList<HashMap<String, String>>();
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    order_donations.setTextAppearance(R.style.h5);
+                    TextView helps = getView().findViewById(R.id.order_helps);
+                    helps.setTextAppearance(R.style.h6);
+                }
+
+                filtered_List.add(aList.get(2));
+                filtered_List.add(aList.get(0));
+                filtered_List.add(aList.get(1));
+                filtered_List.add(aList.get(3));
+
+                String[] from = {"name", "image", "donations", "helps"};
+                int[] to = {R.id.name, R.id.profile_img, R.id.donation_number, R.id.helps_number};
+
+                SimpleAdapter simpleAdapter = new SimpleAdapter(getActivity(), filtered_List, R.layout.friend_status_list, from, to);
+                ListView lv = (ListView) getView().findViewById(R.id.lista_amigos);
+                lv.setAdapter(simpleAdapter);
+                setListViewHeightBasedOnChildren(lv);
+
+            }
+        });
+
+        final TextView order_helps = getView().findViewById(R.id.order_helps);
+        order_helps.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    order_helps.setTextAppearance(R.style.h5);
+                    TextView donations = getView().findViewById(R.id.order_donations);
+                    donations.setTextAppearance(R.style.h6);
+                }
+
+                List<HashMap<String, String>> filtered_List = new ArrayList<HashMap<String, String>>();
+
+                filtered_List.add(aList.get(0));
+                filtered_List.add(aList.get(2));
+                filtered_List.add(aList.get(1));
+                filtered_List.add(aList.get(3));
+
+                String[] from = {"name", "image", "donations", "helps"};
+                int[] to = {R.id.name, R.id.profile_img, R.id.donation_number, R.id.helps_number};
+
+                SimpleAdapter simpleAdapter = new SimpleAdapter(getActivity(), filtered_List, R.layout.friend_status_list, from, to);
+                ListView lv = (ListView) getView().findViewById(R.id.lista_amigos);
+                lv.setAdapter(simpleAdapter);
+                setListViewHeightBasedOnChildren(lv);
+
             }
         });
     }
