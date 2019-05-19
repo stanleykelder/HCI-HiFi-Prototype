@@ -82,20 +82,20 @@ public class Content {
     }
 
     static {
-        addPicture(R.drawable.ic_donations);
-        addPicture(R.drawable.ic_friends);
-        addPicture(R.drawable.ic_donations);
-        addPicture(R.drawable.ic_helps);
+        addPicture(R.drawable.football);
+        addPicture(R.drawable.child_education);
+        addPicture(R.drawable.toys_event);
+        addPicture(R.drawable.food_festival);
        /**/ addPicture(R.drawable.event_7);
-        addPicture(R.drawable.ic_friends);
-        addPicture(R.drawable.ic_donations);
+        addPicture(R.drawable.refugee_clothing);
+        addPicture(R.drawable.trophy);
 
     }
 
     static {
         addDescription("Coaches needed for our youngest teams!");
         addDescription("Do you want to help out our children that need some extra explanations?");
-        addDescription("In this elderly house we could always use help and you do not need any experience.");
+        addDescription("Because every child deserves a present for his or her birthday we are collecting toys.");
         addDescription("We organize a food festival for the homeless people and are looking for people to help share the food fairly");
         /**/   addDescription("In this elderly house we could always use help and you do not need any experience.");
         addDescription("To collect refugee clothes we look for people that want to go and collect clothes at peoples houses.");addDescription("Coaches needed for our youngest teams!");
