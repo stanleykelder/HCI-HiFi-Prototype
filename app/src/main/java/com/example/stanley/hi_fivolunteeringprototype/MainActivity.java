@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.NonNull;
@@ -226,11 +228,25 @@ public class MainActivity extends AppCompatActivity {
     public void onCategoryClicked(View view) {
         // Is the button now checked?
         Button btn = (Button) view;
-        SearchFragment.adapter.getFilter().filter(btn.getText());
 
         Drawable secondaryButtonStyle = ContextCompat.getDrawable(view.getContext(), R.drawable.secondary_button);
+        Drawable primaryButtonStyle = ContextCompat.getDrawable(view.getContext(), R.drawable.primary_button);
 
-        final Button elderlyBtn = findViewById(R.id.btn_elderly);
+
+        if(!SearchEventAdapter.cat.contains(btn.getText())){
+            btn.setBackground(primaryButtonStyle);
+            btn.setTextColor(Color.WHITE);
+            SearchEventAdapter.cat.add(btn.getText().toString());
+        } else{
+            btn.setBackground(secondaryButtonStyle);
+            btn.setTextColor(getResources().getColor(R.color.primary_text));
+            List<String> s = SearchEventAdapter.cat;
+            SearchEventAdapter.cat.remove(btn.getText());
+            Log.d("Ssa",SearchEventAdapter.cat.toString());
+        }
+
+        SearchFragment.adapter.getFilter().filter(SearchFragment.etSearch.getText());
+/*        final Button elderlyBtn = findViewById(R.id.btn_elderly);
         elderlyBtn.setBackground(secondaryButtonStyle);
         final Button childrenBtn = findViewById(R.id.btn_children);
         childrenBtn.setBackground(secondaryButtonStyle);
@@ -246,12 +262,10 @@ public class MainActivity extends AppCompatActivity {
         refugeesBtn.setTextColor(getResources().getColor(R.color.primary_text));
         sportBtn.setTextColor(getResources().getColor(R.color.primary_text));
         homelessBtn.setTextColor(getResources().getColor(R.color.primary_text));
-        childrenBtn.setTextColor(getResources().getColor(R.color.primary_text));
+        childrenBtn.setTextColor(getResources().getColor(R.color.primary_text));*/
 
 
-        Drawable primaryButtonStyle = ContextCompat.getDrawable(view.getContext(), R.drawable.primary_button);
-        btn.setBackground(primaryButtonStyle);
-        btn.setTextColor(Color.WHITE);
+
 
 
     }
