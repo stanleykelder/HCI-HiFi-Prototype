@@ -43,8 +43,7 @@ public class SearchFragment extends Fragment {
 
         ViewGroup.LayoutParams params = listView.getLayoutParams();
 
-        params.height = totalHeight + (listView.getDividerHeight() *
-                (listAdapter.getCount() - 1));
+        params.height = 9000;
 
         listView.setLayoutParams(params);
         listView.requestLayout();
