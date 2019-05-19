@@ -224,7 +224,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:text="Help is needed with all kind of small things in the elderly house of Amalia. Examples of tasks are: serving food, playing game with the elderly or helping them when walking."
+                android:text="Help is needed with all kind of small things in the elderly house of Amalia. Examples of tasks are: serving food, playing games with the elderly or helping them when walking."
                 android:textAppearance="@style/h6"
                 app:fontFamily="@font/comfortaa" />
 

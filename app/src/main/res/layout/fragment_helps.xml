@@ -85,7 +85,7 @@
                     android:layout_marginRight="50dp"
                     android:layout_marginBottom="10dp"
                     android:gravity="center_horizontal"
-                    android:text="Participate in one event more to reach Level 2!"
+                    android:text="Participate in two more events to reach Level 2!"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:fontFamily="@font/comfortaa" />
 
