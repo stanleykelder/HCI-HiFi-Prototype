@@ -19,7 +19,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="46dp"
                 android:layout_margin="20dp"
                 android:background="@drawable/search_bar"
                 android:gravity="center_vertical"
@@ -36,7 +36,7 @@
                 <EditText
                     android:id="@+id/search_friend"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="58dp"
                     android:background="@drawable/search_bar"
                     android:hint="Search friend's name"
                     android:textColor="#474747" />

@@ -86,7 +86,7 @@
                     android:layout_marginBottom="10dp"
                     android:gravity="center_horizontal"
                     android:text="Participate in one event more to reach Level 2!"
-                    android:textAppearance="@style/h4"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:fontFamily="@font/comfortaa" />
 
             </LinearLayout>
@@ -252,16 +252,16 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
-                            android:textAppearance="@style/h5"
                             android:text="12 FEB"
+                            android:textAppearance="@style/h5"
                             app:fontFamily="@font/open_sans_bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
-                            android:textAppearance="@style/h6"
                             android:text="Food for Africa"
+                            android:textAppearance="@style/h6"
                             app:fontFamily="@font/comfortaa" />
                     </LinearLayout>
 
@@ -292,16 +292,16 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
-                            android:textAppearance="@style/h5"
                             android:text="5 JAN"
+                            android:textAppearance="@style/h5"
                             app:fontFamily="@font/open_sans_bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
-                            android:textAppearance="@style/h6"
                             android:text="Toys collection"
+                            android:textAppearance="@style/h6"
                             app:fontFamily="@font/comfortaa" />
                     </LinearLayout>
 
