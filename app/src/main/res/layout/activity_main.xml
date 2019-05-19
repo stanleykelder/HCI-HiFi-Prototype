@@ -33,6 +33,7 @@
         android:layout_marginBottom="0dp"
         android:background="?android:attr/windowBackground"
         android:theme="@style/AppTheme"
-        app:menu="@menu/bottom_navigation" />
+        app:menu="@menu/bottom_navigation"
+        android:isScrollContainer="false"/>
 
 </RelativeLayout>
