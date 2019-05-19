@@ -5,12 +5,14 @@ import android.app.Dialog;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -205,6 +207,55 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
 
     }
+
+    public void goNoImplemented(View view)
+    {
+        Fragment newFragment;
+        newFragment = new NotImplementedFragment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        // Replace whatever is in the fragment_container view with this fragment,
+        // and add the transaction to the back stack if needed
+        transaction.replace(R.id.fragment_container, newFragment);
+        transaction.addToBackStack(null);
+
+        // Commit the transaction
+        transaction.commit();
+    }
+
+    public void onCategoryClicked(View view) {
+        // Is the button now checked?
+        Button btn = (Button) view;
+        SearchFragment.adapter.getFilter().filter(btn.getText());
+
+        Drawable secondaryButtonStyle = ContextCompat.getDrawable(view.getContext(), R.drawable.secondary_button);
+
+        final Button elderlyBtn = findViewById(R.id.btn_elderly);
+        elderlyBtn.setBackground(secondaryButtonStyle);
+        final Button childrenBtn = findViewById(R.id.btn_children);
+        childrenBtn.setBackground(secondaryButtonStyle);
+        final Button sportBtn = findViewById(R.id.btn_sport);
+        sportBtn.setBackground(secondaryButtonStyle);
+        final Button refugeesBtn = findViewById(R.id.btn_refugees);
+        refugeesBtn.setBackground(secondaryButtonStyle);
+        final Button homelessBtn = findViewById(R.id.btn_homeless);
+        homelessBtn.setBackground(secondaryButtonStyle);
+
+
+        elderlyBtn.setTextColor(getResources().getColor(R.color.primary_text));
+        refugeesBtn.setTextColor(getResources().getColor(R.color.primary_text));
+        sportBtn.setTextColor(getResources().getColor(R.color.primary_text));
+        homelessBtn.setTextColor(getResources().getColor(R.color.primary_text));
+        childrenBtn.setTextColor(getResources().getColor(R.color.primary_text));
+
+
+        Drawable primaryButtonStyle = ContextCompat.getDrawable(view.getContext(), R.drawable.primary_button);
+        btn.setBackground(primaryButtonStyle);
+        btn.setTextColor(Color.WHITE);
+
+
+    }
+
 
     public void goBackHome (View view){
 

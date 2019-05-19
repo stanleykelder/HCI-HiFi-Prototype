@@ -1,23 +1,18 @@
 package com.example.stanley.hi_fivolunteeringprototype;
 
-import android.content.Context;
-import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.provider.DocumentsContract;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -25,7 +20,8 @@ import android.widget.ListView;
 public class SearchFragment extends Fragment {
     private ListView friendsListView;
     private EditText etSearch;
-    private SearchEventAdapter adapter;
+    static public SearchEventAdapter adapter;
+    static public String cat;
 
     public static void setListViewHeightBasedOnChildren
             (ListView listView) {
@@ -78,6 +74,25 @@ public class SearchFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                Drawable secondaryButtonStyle = ContextCompat.getDrawable(getContext(), R.drawable.secondary_button);
+
+                final Button elderlyBtn = getView().findViewById(R.id.btn_elderly);
+                elderlyBtn.setBackground(secondaryButtonStyle);
+                final Button childrenBtn = getView().findViewById(R.id.btn_children);
+                childrenBtn.setBackground(secondaryButtonStyle);
+                final Button sportBtn = getView().findViewById(R.id.btn_sport);
+                sportBtn.setBackground(secondaryButtonStyle);
+                final Button refugeesBtn = getView().findViewById(R.id.btn_refugees);
+                refugeesBtn.setBackground(secondaryButtonStyle);
+                final Button homelessBtn = getView().findViewById(R.id.btn_homeless);
+                homelessBtn.setBackground(secondaryButtonStyle);
+
+
+                elderlyBtn.setTextColor(getResources().getColor(R.color.primary_text));
+                refugeesBtn.setTextColor(getResources().getColor(R.color.primary_text));
+                sportBtn.setTextColor(getResources().getColor(R.color.primary_text));
+                homelessBtn.setTextColor(getResources().getColor(R.color.primary_text));
+                childrenBtn.setTextColor(getResources().getColor(R.color.primary_text));
                 // Call back the Adapter with current character to Filter
                 adapter.getFilter().filter(s.toString());
             }
