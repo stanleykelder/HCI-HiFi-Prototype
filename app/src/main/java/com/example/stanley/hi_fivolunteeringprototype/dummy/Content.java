@@ -55,6 +55,7 @@ public class Content {
         /**/addString("Helping the elderly");
         addString("Refugee clothing");
         addString("Kids race");
+        addString("Play games with elderly");
 
     }
 
@@ -65,6 +66,7 @@ public class Content {
         addLocation("Barcelona");
         /**/addLocation("Lavapies");
         addLocation("Salamanca");
+        addLocation("Valencia");
         addLocation("Valencia");
 
 
@@ -78,6 +80,7 @@ public class Content {
       /**/  addDate("07.06.2019");
         addDate("30.06.2019");
         addDate("15.06.2019");
+        addDate("15.06.2019");
 
     }
 
@@ -89,17 +92,19 @@ public class Content {
        /**/ addPicture(R.drawable.elderly_event);
         addPicture(R.drawable.clothes);
         addPicture(R.drawable.kids_run);
+        addPicture(R.drawable.toys_event);
 
     }
 
     static {
-        addDescription("Coaches needed for our youngest teams!");
-        addDescription("Do you want to help out our children that need some extra explanations?");
-        addDescription("Because every child deserves a present for his or her birthday we are collecting toys.");
-        addDescription("We organize a food festival for the homeless people and are looking for people to help share the food fairly");
-        /**/   addDescription("In this elderly house we could always use help and you do not need any experience.");
-        addDescription("To collect refugee clothes we look for people that want to go and collect clothes at peoples houses.");
-        addDescription("Coaches needed for our youngest teams!");
+        addDescription("Coaches needed for our youngest teams during the weekdays!");
+        addDescription("Do you want to help out our children that need some extra explanations? Weekend and Weekdays possible.");
+        addDescription("Because every child deserves a present for his or her birthday we are collecting toys. Only in the morning.");
+        addDescription("We organize a food festival for the homeless people and are looking for people to help share the food fairly. Mostly in the evening.");
+        /**/   addDescription("In this elderly house we could always use help. No experience needed and both the weekend and weekdays are possible.");
+        addDescription("To collect refugee clothes we look for people that want to go and collect clothes at peoples houses. In the evening  and no experience.");
+        addDescription("Coaches needed for our youngest teams! We are training on midday.");
+        addDescription("We have a ton of fun games that you can play with out elderly. Experience in Skat would be great. Only during the weekdays.");
 
     }
 

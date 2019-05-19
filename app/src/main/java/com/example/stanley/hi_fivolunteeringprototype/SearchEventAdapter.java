@@ -2,6 +2,7 @@ package com.example.stanley.hi_fivolunteeringprototype;
 
 import android.app.usage.UsageEvents;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +15,12 @@ import android.widget.TextView;
 import com.example.stanley.hi_fivolunteeringprototype.dummy.Content;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class SearchEventAdapter extends BaseAdapter implements Filterable {
     private Context context; //context
+    static public ArrayList<String> cat = new ArrayList<String>();
 
 
     ArrayList<VoluEvent> voluEvents = new ArrayList<VoluEvent>();
@@ -80,16 +83,7 @@ public class SearchEventAdapter extends BaseAdapter implements Filterable {
         mLocationIcon.setImageResource(R.drawable.location_icon);
         mCalendarIcon.setImageResource(R.drawable.calendar_icon);
 
-/*        ImageView pic = convertView.findViewById(R.id.profile_pic);
-        Drawable primaryButtonStyle;
-        if(currentItem=="Stanley Kelder") primaryButtonStyle = ContextCompat.getDrawable(context, R.drawable.calendar_icon);
-        else if(currentItem=="Yerai Zamorano") primaryButtonStyle = ContextCompat.getDrawable(context, R.drawable.event_image);
-        else if(currentItem=="Jie Gao") primaryButtonStyle = ContextCompat.getDrawable(context, R.drawable.profile_round);
-        else if(currentItem=="Periandros Papamarkos") primaryButtonStyle = ContextCompat.getDrawable(context, R.drawable.event_image);
-        else if(currentItem=="Lukas Bittner Zamorano") primaryButtonStyle = ContextCompat.getDrawable(context, R.drawable.event_image);
-        else if(currentItem=="Fernando Rodriguez") primaryButtonStyle = ContextCompat.getDrawable(context, R.drawable.trophy);
-        else primaryButtonStyle = ContextCompat.getDrawable(context, R.drawable.sent);
-        pic.setImageDrawable(primaryButtonStyle);*/
+
 
 
         // returns the view for the current row
@@ -123,7 +117,7 @@ public class SearchEventAdapter extends BaseAdapter implements Filterable {
                  *  else does the Filtering and returns FilteredArrList(Filtered)
                  *
                  ********/
-                if (constraint == null || constraint.length() == 0) {
+                if (constraint == null) {
 
                     // set the Original result to return
                     results.count = voluEvents.size();
@@ -134,10 +128,17 @@ public class SearchEventAdapter extends BaseAdapter implements Filterable {
                         String data = voluEvents.get(i).title;
                         String data2 = voluEvents.get(i).location;
                         String data3 = voluEvents.get(i).content;
-                        if (data.toLowerCase().contains(constraint.toString()) ||
+
+                        if (constraint.length() == 0 || data.toLowerCase().contains(constraint.toString()) ||
                                 data2.toLowerCase().contains(constraint.toString()) ||
                                 data3.toLowerCase().contains(constraint.toString())) {
-                            FilteredArrList.add(voluEvents.get(i));
+                            boolean b = true;
+                            for (int j = 0; j < cat.size(); j++) {
+                                if (!data3.toLowerCase().contains(cat.get(j).toLowerCase()))
+                                    b = false;
+                            }
+                            if(b) FilteredArrList.add(voluEvents.get(i));
+
                         }
                     }
                     // set the Filtered result to return

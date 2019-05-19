@@ -16,12 +16,13 @@ import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import java.util.List;
+
 
 public class SearchFragment extends Fragment {
     private ListView friendsListView;
-    private EditText etSearch;
+    static public EditText etSearch;
     static public SearchEventAdapter adapter;
-    static public String cat;
 
     public static void setListViewHeightBasedOnChildren
             (ListView listView) {
@@ -73,9 +74,9 @@ public class SearchFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Drawable secondaryButtonStyle = ContextCompat.getDrawable(getContext(), R.drawable.secondary_button);
+                //Drawable secondaryButtonStyle = ContextCompat.getDrawable(getContext(), R.drawable.secondary_button);
 
-                final Button elderlyBtn = getView().findViewById(R.id.btn_elderly);
+                /*final Button elderlyBtn = getView().findViewById(R.id.btn_elderly);
                 elderlyBtn.setBackground(secondaryButtonStyle);
                 final Button childrenBtn = getView().findViewById(R.id.btn_children);
                 childrenBtn.setBackground(secondaryButtonStyle);
@@ -91,7 +92,7 @@ public class SearchFragment extends Fragment {
                 refugeesBtn.setTextColor(getResources().getColor(R.color.primary_text));
                 sportBtn.setTextColor(getResources().getColor(R.color.primary_text));
                 homelessBtn.setTextColor(getResources().getColor(R.color.primary_text));
-                childrenBtn.setTextColor(getResources().getColor(R.color.primary_text));
+                childrenBtn.setTextColor(getResources().getColor(R.color.primary_text));*/
                 // Call back the Adapter with current character to Filter
                 adapter.getFilter().filter(s.toString());
             }
