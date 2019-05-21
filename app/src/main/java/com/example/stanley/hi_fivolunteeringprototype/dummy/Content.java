@@ -49,8 +49,10 @@ public class Content {
 
     static {
         addString("Football tournament");
+        addString("Keep company to elderly in hospital");
         addString("Child education");
         addString("Toys collection");
+        addString("Trip to Segovia with Santa Maria del Mar elderly house");
         addString("Food festival");
         /**/addString("Helping the elderly");
         addString("Refugee clothing");
@@ -61,8 +63,10 @@ public class Content {
 
     static {
         addLocation("Aluche");
+        addLocation("Getafe");
         addLocation("La Latina");
         addLocation("Moncloa");
+        addLocation("Segovia");
         addLocation("Barcelona");
         /**/addLocation("Lavapies");
         addLocation("Salamanca");
@@ -73,21 +77,25 @@ public class Content {
     }
 
     static {
-        addDate("21.06.2019");
-        addDate("15.06.2019");
-        addDate("14.06.2019");
-        addDate("01.07.2019");
-      /**/  addDate("07.06.2019");
-        addDate("30.06.2019");
-        addDate("15.06.2019");
-        addDate("15.06.2019");
+        addDate("21.06");
+        addDate("12.06");
+        addDate("15.06");
+        addDate("14.06");
+        addDate("01.06");
+        addDate("01.07");
+      /**/  addDate("01.06 | 07.06");
+        addDate("30.06");
+        addDate("15.06");
+        addDate("15.06");
 
     }
 
     static {
         addPicture(R.drawable.football);
+        addPicture(R.drawable.hospital_event);
         addPicture(R.drawable.child);
         addPicture(R.drawable.toys_event);
+        addPicture(R.drawable.trip_event);
         addPicture(R.drawable.food);
        /**/ addPicture(R.drawable.elderly_event);
         addPicture(R.drawable.clothes);
@@ -98,10 +106,12 @@ public class Content {
 
     static {
         addDescription("Coaches needed for our youngest teams during the weekdays!");
+        addDescription("Join this event and spend an afternoon doing different weekend activities with elderly people in the university hospital of Getafe.");
         addDescription("Do you want to help out our children that need some extra explanations? Weekend and Weekdays possible.");
         addDescription("Because every child deserves a present for his or her birthday we are collecting toys. Only in the morning.");
+        addDescription("Every Saturday, the Santa Maria del Mar elderly house organizes a trip to a place around Madrid for its guests. This Saturday 01.06 we are going to Segovia and we are searching for people having some experience with elderly care.");
         addDescription("We organize a food festival for the homeless people and are looking for people to help share the food fairly. Mostly in the evening.");
-        /**/   addDescription("In this elderly house we could always use help. No experience needed and both the weekend and weekdays are possible.");
+        /**/   addDescription("In this elderly house we could always use help. No experience needed and both morning and evening during weekends and weekdays are possible.");
         addDescription("To collect refugee clothes we look for people that want to go and collect clothes at peoples houses. In the evening  and no experience.");
         addDescription("Coaches needed for our youngest teams! We are training on midday.");
         addDescription("We have a ton of fun games that you can play with out elderly. Experience in Skat would be great. Only during the weekdays.");

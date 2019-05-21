@@ -33,6 +33,7 @@ public class SearchEventAdapter extends BaseAdapter implements Filterable {
         }
         filteredVoluEvents = voluEvents;
         this.context = context;
+        cat.clear();
     }
 
     @Override

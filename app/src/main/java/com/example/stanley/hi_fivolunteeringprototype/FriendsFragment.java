@@ -134,8 +134,12 @@ public class FriendsFragment extends Fragment {
             hm.put("name", "Olenna Tyrell");
             hm.put("image", Integer.toString(R.drawable.friends_3));
             hm.put("donations", "10");
-            hm.put("helps", "5");
+            hm.put("helps", "6");
             aList.add(hm);
+
+            TextView friends = getView().findViewById(R.id.friends_number);
+            friends.setText("6");
+
         }
 
         String[] from = {"name", "image", "donations", "helps"};
@@ -170,17 +174,14 @@ public class FriendsFragment extends Fragment {
 
                 String text = search.getText().toString().toLowerCase();
 
-                Log.d("texto",text);
                 List<HashMap<String, String>> filtered_List = new ArrayList<HashMap<String, String>>();
                 for(int i=0; i < aList.size(); i++){
 
                     if(aList.get(i).toString().toLowerCase().contains(text)){
                         filtered_List.add(aList.get(i));
-                        Log.d("uno",aList.get(i).toString());
                     }
                 }
 
-                Log.d("hole",filtered_List.toString());
                 String[] from = {"name", "image", "donations", "helps"};
                 int[] to = {R.id.name, R.id.profile_img, R.id.donation_number, R.id.helps_number};
 
@@ -203,6 +204,11 @@ public class FriendsFragment extends Fragment {
                     order_donations.setTextAppearance(R.style.h5);
                     TextView helps = getView().findViewById(R.id.order_helps);
                     helps.setTextAppearance(R.style.h6);
+                }
+
+
+                if(MainActivity.friends){
+                    filtered_List.add(aList.get(4));
                 }
 
                 filtered_List.add(aList.get(2));
@@ -235,6 +241,9 @@ public class FriendsFragment extends Fragment {
                 List<HashMap<String, String>> filtered_List = new ArrayList<HashMap<String, String>>();
 
                 filtered_List.add(aList.get(0));
+                if(MainActivity.friends){
+                    filtered_List.add(aList.get(4));
+                }
                 filtered_List.add(aList.get(2));
                 filtered_List.add(aList.get(1));
                 filtered_List.add(aList.get(3));
